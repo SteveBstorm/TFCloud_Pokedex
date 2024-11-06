@@ -1,0 +1,15 @@
+.content{
+  display: flex;
+  flex-direction: row;
+  gap : 20px;
+  margin:auto;
+}
+.list{
+  min-width: 40rem;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+.detail {
+  position:sticky;
+  min-width: 40rem;
+}

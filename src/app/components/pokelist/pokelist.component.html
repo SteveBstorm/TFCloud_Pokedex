@@ -1,0 +1,36 @@
+<div class="content">
+  <div class="list">
+
+    <p-button severity="success"
+              (click)="previous()"
+              raised
+              size="small"
+              *ngIf="pokedex.previous"
+              >Précédent</p-button>
+    <p-button severity="success"
+              (click)="next()"
+              raised
+              outlined
+              *ngIf="pokedex.next"
+              >Suivant</p-button>
+    <hr />
+    <p-table [value]="pokedex.results" scrollable>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nom</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-pokemon>
+        <tr>
+          <td>{{pokemon.name | titlecase}}</td>
+          <td><p-button size="small" (click)="selectPokemon(pokemon.url)">Détails</p-button></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="detail" *ngIf="selectedPokemon">
+    <app-pokedetail [url]="selectedPokemon"></app-pokedetail>
+  </div>
+</div>
